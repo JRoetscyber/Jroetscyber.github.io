@@ -11,24 +11,26 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
-    <header>
+    <div class="animated-bg"></div>
+    <header class="header-animate" aria-label="Site Header">
         <div class="container">
+            <div class="logo-circle" aria-label="Jonathan Roets Logo">JR</div>
             <h1>Jonathan Roets</h1>
             <p class="subtitle">Full-Stack Developer | Python · Django · Automation</p>
         </div>
     </header>
     <main>
-        <section id="about" class="fade-section">
+        <section id="about" class="fade-section" aria-labelledby="about-heading">
             <div class="container">
-                <h2>About Me</h2>
+                <h2 id="about-heading">About Me</h2>
                 <p>
                     I’m a passionate full-stack developer specializing in Python, Django, and automation. I love building efficient solutions and exploring new technologies to solve real-world problems.
                 </p>
             </div>
         </section>
-        <section id="skills" class="fade-section">
+        <section id="skills" class="fade-section" aria-labelledby="skills-heading">
             <div class="container">
-                <h2>Skills</h2>
+                <h2 id="skills-heading">Skills</h2>
                 <ul class="skills-list">
                     <li>Python</li>
                     <li>Django</li>
@@ -41,9 +43,9 @@
                 </ul>
             </div>
         </section>
-        <section id="projects" class="fade-section">
+        <section id="projects" class="fade-section" aria-labelledby="projects-heading">
             <div class="container">
-                <h2>Projects</h2>
+                <h2 id="projects-heading">Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
                         <h3>CRM System</h3>
@@ -63,10 +65,10 @@
                 </div>
             </div>
         </section>
-        <section id="contact" class="fade-section">
+        <section id="contact" class="fade-section" aria-labelledby="contact-heading">
             <div class="container">
-                <h2>Contact Me</h2>
-                <form id="contact-form">
+                <h2 id="contact-heading">Contact Me</h2>
+                <form id="contact-form" autocomplete="off">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="user_name" required>
