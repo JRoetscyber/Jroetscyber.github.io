@@ -1,9 +1,8 @@
-// Initialize EmailJS (replace with your own user ID)
+// Initialize EmailJS
 (function() {
-    emailjs.init('degXCNYEDAW_NZvRs'); // <-- Replace with your EmailJS user ID
+    emailjs.init('degXCNYEDAW_NZvRs');
 })();
 
-// Contact form handling
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
     const formMsg = document.getElementById('form-message');
@@ -13,10 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
         formMsg.textContent = '';
         formMsg.className = '';
 
-        // Simple validation
         const name = form.user_name.value.trim();
         const email = form.user_email.value.trim();
         const message = form.message.value.trim();
+
         if (!name || !email || !message) {
             formMsg.textContent = 'Please fill in all fields.';
             formMsg.className = 'error';
@@ -28,20 +27,26 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Send email via EmailJS
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+        const serviceID = "service_56xmdu2";
+        const templateID = "template_23pzg8u";
+
+        emailjs.send(serviceID, templateID, {
             from_name: name,
             from_email: email,
             message: message
         })
-        .then(function() {
-            formMsg.textContent = 'Message sent! Thank you.';
-            formMsg.className = 'success';
-            form.reset();
-        }, function(error) {
-            formMsg.textContent = 'Failed to send. Please try again later.';
-            formMsg.className = 'error';
-        });
+        .then(
+            res => {
+                formMsg.textContent = "Email sent successfully!";
+                formMsg.className = 'success';
+                form.reset();
+            },
+            error => {
+                console.error('EmailJS send failed:', error);
+                formMsg.textContent = "Failed to send email. Please try again later.";
+                formMsg.className = 'error';
+            }
+        );
     });
 
     // Fade-in animation for sections

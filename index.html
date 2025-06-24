@@ -1,9 +1,3 @@
-<!--
-    Jonathan Roets Portfolio Website
-    Modern, responsive single-page portfolio for a full-stack developer.
-    Built with HTML, CSS, and JavaScript (no frameworks).
-    Features: animated background, section fade-ins, EmailJS contact form, and project showcase.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,26 +11,34 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
+    <div style="color: #fff; background: #c0392b; padding: 8px; text-align: center; font-size: 1.1em;">
+        If you see this message, your HTML is loading. If the page is blank, check your CSS/JS file paths.
+    </div>
+    <noscript>
+        <div style="color: #fff; background: #8e44ad; padding: 8px; text-align: center;">
+            JavaScript is disabled. Please enable JavaScript for full functionality.
+        </div>
+    </noscript>
     <div class="animated-bg"></div>
-    <header class="header-animate" aria-label="Site Header">
+    <header class="header-animate">
         <div class="container">
-            <div class="logo-circle" aria-label="Jonathan Roets Logo">JR</div>
+            <div class="logo-circle">JR</div>
             <h1>Jonathan Roets</h1>
             <p class="subtitle">Full-Stack Developer | Python · Django · Automation</p>
         </div>
     </header>
     <main>
-        <section id="about" class="fade-section" aria-labelledby="about-heading">
+        <section id="about" class="fade-section">
             <div class="container">
-                <h2 id="about-heading">About Me</h2>
+                <h2>About Me</h2>
                 <p>
                     I’m a passionate full-stack developer specializing in Python, Django, and automation. I love building efficient solutions and exploring new technologies to solve real-world problems.
                 </p>
             </div>
         </section>
-        <section id="skills" class="fade-section" aria-labelledby="skills-heading">
+        <section id="skills" class="fade-section">
             <div class="container">
-                <h2 id="skills-heading">Skills</h2>
+                <h2>Skills</h2>
                 <ul class="skills-list">
                     <li>Python</li>
                     <li>Django</li>
@@ -49,9 +51,9 @@
                 </ul>
             </div>
         </section>
-        <section id="projects" class="fade-section" aria-labelledby="projects-heading">
+        <section id="projects" class="fade-section">
             <div class="container">
-                <h2 id="projects-heading">Projects</h2>
+                <h2>Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
                         <h3>CRM System</h3>
@@ -71,10 +73,10 @@
                 </div>
             </div>
         </section>
-        <section id="contact" class="fade-section" aria-labelledby="contact-heading">
+        <section id="contact" class="fade-section">
             <div class="container">
-                <h2 id="contact-heading">Contact Me</h2>
-                <form id="contact-form" autocomplete="off">
+                <h2>Contact Me</h2>
+                <form id="contact-form">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="user_name" required>

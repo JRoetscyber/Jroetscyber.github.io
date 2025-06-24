@@ -291,6 +291,17 @@ footer {
     transform: translateY(0);
 }
 
+/* Add smooth transitions for anticipated user interactions */
+a, .btn, .project-card, .logo-circle, input, textarea {
+    transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Add focus style for accessibility */
+a:focus, .btn:focus, input:focus, textarea:focus {
+    outline: 2px solid var(--minor-purple);
+    outline-offset: 2px;
+}
+
 /* Responsive Design */
 @media (max-width: 700px) {
     .logo-circle {
