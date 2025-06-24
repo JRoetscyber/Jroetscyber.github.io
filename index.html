@@ -10,6 +10,16 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <!-- EmailJS library for contact form -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+    <!-- EmailJS v4 library for contact form -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init({
+                publicKey: "degXCNYEDAW_NZvRs",
+            });
+        })();
+    </script>
 </head>
 <body>
     <!-- Message for users with JavaScript disabled -->
