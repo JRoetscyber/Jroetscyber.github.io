@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Roets | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Roboto font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <!-- EmailJS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Jonathan Roets</h1>
+            <p class="subtitle">Full-Stack Developer | Python · Django · Automation</p>
+        </div>
+    </header>
+    <main>
+        <section id="about" class="fade-section">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>
+                    I’m a passionate full-stack developer specializing in Python, Django, and automation. I love building efficient solutions and exploring new technologies to solve real-world problems.
+                </p>
+            </div>
+        </section>
+        <section id="skills" class="fade-section">
+            <div class="container">
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    <li>Python</li>
+                    <li>Django</li>
+                    <li>JavaScript</li>
+                    <li>HTML &amp; CSS</li>
+                    <li>Automation</li>
+                    <li>APIs</li>
+                    <li>SQL</li>
+                    <li>Git</li>
+                </ul>
+            </div>
+        </section>
+        <section id="projects" class="fade-section">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>CRM System</h3>
+                        <p>Django-based CRM integrated with WhatsApp API for automated client communication and workflow management.</p>
+                        <a href="https://github.com/yourusername/crm-system" target="_blank" class="btn">GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Inventory App</h3>
+                        <p>Python CLI application for managing inventory, tracking stock levels, and generating reports.</p>
+                        <a href="https://github.com/yourusername/inventory-app" target="_blank" class="btn">GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>JavaScript RPG Game</h3>
+                        <p>Browser-based RPG game built with vanilla JavaScript, featuring turn-based combat and character progression.</p>
+                        <a href="https://github.com/yourusername/js-rpg-game" target="_blank" class="btn">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="fade-section">
+            <div class="container">
+                <h2>Contact Me</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="user_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="user_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send</button>
+                    <div id="form-message"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <a href="https://github.com/yourusername" target="_blank" class="footer-link">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="icon">
+                GitHub
+            </a>
+            <a href="mailto:jonathan.roets@email.com" class="footer-link">
+                <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/mail.svg" alt="Email" class="icon">
+                Email
+            </a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
