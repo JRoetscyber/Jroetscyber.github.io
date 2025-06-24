@@ -3,27 +3,8 @@
     emailjs.init('service_56xmdu2'); // <-- Replace with your EmailJS user ID
 })();
 
+// Contact form handling
 document.addEventListener('DOMContentLoaded', function() {
-    // Animate header on load (handled by CSS animation)
-    // Staggered fade-in for sections
-    const fadeSections = document.querySelectorAll('.fade-section');
-    fadeSections.forEach((section, idx) => {
-        section.style.transitionDelay = (0.3 + idx * 0.18) + 's';
-    });
-
-    const revealOnScroll = () => {
-        const trigger = window.innerHeight * 0.85;
-        fadeSections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top < trigger) {
-                section.classList.add('visible');
-            }
-        });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-
-    // Contact form logic
     const form = document.getElementById('contact-form');
     const formMsg = document.getElementById('form-message');
 
@@ -62,4 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
             formMsg.className = 'error';
         });
     });
+
+    // Fade-in animation for sections
+    const fadeSections = document.querySelectorAll('.fade-section');
+    const revealOnScroll = () => {
+        const trigger = window.innerHeight * 0.85;
+        fadeSections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < trigger) {
+                section.classList.add('visible');
+            }
+        });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
 });
