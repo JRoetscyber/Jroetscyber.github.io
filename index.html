@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Roets | Portfolio</title>
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <!-- Roboto font -->
+    <!-- Roboto font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <!-- EmailJS CDN -->
+    <!-- EmailJS library for contact form -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
+    <!-- Debug message for loading and troubleshooting -->
     <div style="color: #fff; background: #c0392b; padding: 8px; text-align: center; font-size: 1.1em;">
         If you see this message, your HTML is loading. If the page is blank, check your CSS/JS file paths.
     </div>
+    <!-- Message for users with JavaScript disabled -->
     <noscript>
         <div style="color: #fff; background: #8e44ad; padding: 8px; text-align: center;">
             JavaScript is disabled. Please enable JavaScript for full functionality.
         </div>
     </noscript>
+    <!-- Animated background gradient -->
     <div class="animated-bg"></div>
+    <!-- Header with logo and title -->
     <header class="header-animate">
         <div class="container">
             <div class="logo-circle">JR</div>
@@ -28,6 +33,7 @@
         </div>
     </header>
     <main>
+        <!-- About Me Section -->
         <section id="about" class="fade-section">
             <div class="container">
                 <h2>About Me</h2>
@@ -36,6 +42,7 @@
                 </p>
             </div>
         </section>
+        <!-- Skills Section -->
         <section id="skills" class="fade-section">
             <div class="container">
                 <h2>Skills</h2>
@@ -51,6 +58,7 @@
                 </ul>
             </div>
         </section>
+        <!-- Projects Section -->
         <section id="projects" class="fade-section">
             <div class="container">
                 <h2>Projects</h2>
@@ -73,6 +81,7 @@
                 </div>
             </div>
         </section>
+        <!-- Contact Form Section -->
         <section id="contact" class="fade-section">
             <div class="container">
                 <h2>Contact Me</h2>
@@ -95,6 +104,7 @@
             </div>
         </section>
     </main>
+    <!-- Footer with GitHub and Email links -->
     <footer>
         <div class="container">
             <a href="https://github.com/yourusername" target="_blank" class="footer-link">
@@ -107,6 +117,7 @@
             </a>
         </div>
     </footer>
+    <!-- Main JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>

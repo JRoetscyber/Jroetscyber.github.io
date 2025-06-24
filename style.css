@@ -1,3 +1,4 @@
+/* ===== Color Variables ===== */
 :root {
     --primary-red: #C0392B;
     --primary-blue: #2980B9;
@@ -7,6 +8,7 @@
     --text-muted: #B0B3B8;
 }
 
+/* ===== Reset and Base Styles ===== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,7 +25,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Animated background gradient */
+/* ===== Animated Background Gradient ===== */
 .animated-bg {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -42,7 +44,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Logo/Initials circle */
+/* ===== Logo/Initials Circle ===== */
 .logo-circle {
     width: 64px;
     height: 64px;
@@ -67,7 +69,7 @@ body {
     box-shadow: 0 8px 32px rgba(142,68,173,0.18);
 }
 
-/* Header animation */
+/* ===== Header Animation ===== */
 .header-animate {
     opacity: 0;
     transform: translateY(-40px);
@@ -80,6 +82,7 @@ body {
     }
 }
 
+/* ===== Layout Containers ===== */
 .container {
     width: 90%;
     max-width: 900px;
@@ -87,6 +90,7 @@ body {
     padding: 2rem 0;
 }
 
+/* ===== Header Styles ===== */
 header {
     background: linear-gradient(90deg, var(--primary-red) 0%, var(--primary-blue) 100%);
     text-align: center;
@@ -109,10 +113,12 @@ header h1 {
     font-weight: 400;
 }
 
+/* ===== Main Section Spacing ===== */
 main section {
     margin-bottom: 2.5rem;
 }
 
+/* ===== Section Headings ===== */
 h2 {
     color: var(--primary-blue);
     margin-bottom: 1rem;
@@ -121,6 +127,7 @@ h2 {
     letter-spacing: 1px;
 }
 
+/* ===== Skills List ===== */
 .skills-list {
     display: flex;
     flex-wrap: wrap;
@@ -144,6 +151,7 @@ h2 {
     background: var(--minor-purple);
 }
 
+/* ===== Projects Grid and Cards ===== */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -180,6 +188,7 @@ h2 {
     font-size: 1rem;
 }
 
+/* ===== Buttons ===== */
 .btn {
     display: inline-block;
     background: linear-gradient(90deg, var(--primary-blue), var(--minor-purple));
@@ -199,6 +208,7 @@ h2 {
     background: linear-gradient(90deg, var(--minor-purple), var(--primary-blue));
 }
 
+/* ===== Contact Form ===== */
 form {
     background: #23272F;
     padding: 2rem 1.5rem;
@@ -235,6 +245,7 @@ input:focus, textarea:focus {
     outline: none;
 }
 
+/* ===== Form Message Feedback ===== */
 #form-message {
     margin-top: 1rem;
     font-size: 1rem;
@@ -249,6 +260,7 @@ input:focus, textarea:focus {
     color: #e74c3c;
 }
 
+/* ===== Footer ===== */
 footer {
     background: #181A20;
     padding: 1.2rem 0;
@@ -278,7 +290,7 @@ footer {
     filter: brightness(0.9) invert(0.7);
 }
 
-/* Fade-in animation for sections with stagger */
+/* ===== Fade-in Animation for Sections ===== */
 .fade-section {
     opacity: 0;
     transform: translateY(40px);
@@ -291,18 +303,18 @@ footer {
     transform: translateY(0);
 }
 
-/* Add smooth transitions for anticipated user interactions */
+/* ===== Anticipated User Interactions ===== */
 a, .btn, .project-card, .logo-circle, input, textarea {
     transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
 }
 
-/* Add focus style for accessibility */
+/* Focus style for accessibility */
 a:focus, .btn:focus, input:focus, textarea:focus {
     outline: 2px solid var(--minor-purple);
     outline-offset: 2px;
 }
 
-/* Responsive Design */
+/* ===== Responsive Design ===== */
 @media (max-width: 700px) {
     .logo-circle {
         width: 44px;
