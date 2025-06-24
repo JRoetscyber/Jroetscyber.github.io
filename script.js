@@ -1,6 +1,6 @@
 // Initialize EmailJS (replace with your own user ID)
 (function() {
-    emailjs.init('service_56xmdu2'); // <-- Replace with your EmailJS user ID
+    emailjs.init('degXCNYEDAW_NZvRs'); // <-- Replace with your EmailJS user ID
 })();
 
 // Contact form handling
