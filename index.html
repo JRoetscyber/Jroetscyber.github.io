@@ -164,9 +164,9 @@
         </section>
     </main>
     <footer>
-        <div class="container">
+        <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.2rem;">
             <a href="https://github.com/JRoetscyber" target="_blank" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="icon">
                 GitHub
             </a>
             <a href="mailto:jroetscyber@gmail.com" class="footer-link">
@@ -174,15 +174,15 @@
                 Email
             </a>
             <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" alt="Facebook" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" class="icon">
                 Facebook
             </a>
             <a href="https://www.instagram.com/jroetscyber" target="_blank" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/instagram/instagram-original.svg" alt="Instagram" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" class="icon">
                 Instagram
             </a>
             <a href="https://www.linkedin.com/in/jonathan-roets/" target="_blank" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="icon">
                 LinkedIn
             </a>
             <a href="https://leetcode.com/JRoetscyber/" target="_blank" class="footer-link">
@@ -190,11 +190,24 @@
                 LeetCode
             </a>
             <a href="https://tryhackme.com/p/JRoetscyber" target="_blank" class="footer-link">
-                <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/tryhackme.png" alt="TryHackMe" class="icon" style="background: #212c42; border-radius: 4px;">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tryhackme.svg" alt="TryHackMe" class="icon">
                 TryHackMe
             </a>
         </div>
+        <div style="text-align:center; margin-top: 1.2rem; color: var(--text-muted); font-size: 0.98rem;">
+            <span style="color: var(--primary-blue); font-weight: bold;">&#123;</span>
+            &copy; <span id="footer-year"></span> Jonathan Roets
+            <span style="color: var(--primary-red); font-weight: bold;">&#125;</span>
+        </div>
     </footer>
+    <script>
+        // Set the year automatically in the footer
+        document.addEventListener('DOMContentLoaded', function() {
+            var y = new Date().getFullYear();
+            var el = document.getElementById('footer-year');
+            if (el) el.textContent = y;
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
