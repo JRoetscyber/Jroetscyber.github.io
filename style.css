@@ -348,3 +348,85 @@ a:focus, .btn:focus, input:focus, textarea:focus {
         padding: 1.2rem 0.7rem 1rem 0.7rem;
     }
 }
+
+/* Scale down the logo image inside .logo-circle */
+.logo-circle img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* About Me Cards Grid - same as projects grid */
+.about-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* About Card uses project-card style for shadow, border, etc. (no flip, larger for more content) */
+.about-card.project-card {
+    min-height: 360px;
+    background: #23272F;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.18);
+    border-left: 5px solid var(--primary-blue);
+    padding: 2rem 1.2rem 1.5rem 1.2rem;
+    position: relative;
+    overflow: visible;
+    transition: transform 0.2s, box-shadow 0.2s, border-left 0.2s;
+}
+
+.about-card.project-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(41, 128, 185, 0.25);
+    border-left: 5px solid var(--minor-purple);
+}
+
+/* Remove flip card inner and faces, just show content normally */
+.about-card-inner,
+.about-card-front,
+.about-card-back {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    backface-visibility: visible;
+    border-radius: 0;
+    display: block;
+    background: none;
+    color: inherit;
+    box-shadow: none;
+    transform: none;
+    overflow: visible;
+    min-height: unset;
+    max-height: unset;
+    align-items: unset;
+    justify-content: unset;
+}
+
+/* Make about cards content fit comfortably */
+.about-card.project-card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 0.7rem;
+    font-size: 1.25rem;
+}
+.about-card.project-card ul {
+    margin-left: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+.about-card.project-card p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+}
+
+/* Responsive tweaks for larger cards */
+@media (max-width: 700px) {
+    .about-card.project-card {
+        min-height: 240px;
+        padding: 1.2rem 0.7rem 1rem 0.7rem;
+    }
+}
