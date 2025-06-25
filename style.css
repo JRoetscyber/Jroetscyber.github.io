@@ -255,7 +255,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px;
+    padding-top: 80px; /* was 80px */
     padding-bottom: 40px;
     background: var(--primary-bg);
     text-align: center;
