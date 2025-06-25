@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const name = form.user_name.value.trim();
         const email = form.user_email.value.trim();
-        const title = form.title.value.trim();
+        // If you have a title field, otherwise set a default
+        const title = form.title ? form.title.value.trim() : "Contact Form Submission";
         const message = form.message.value.trim();
 
         // Add time variable in ISO format (or customize as needed)
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const universalName = name;
 
-        if (!name || !email || !title || !message) {
+        if (!name || !email || !message) {
             formMsg.textContent = 'Please fill in all fields.';
             formMsg.className = 'error';
             return;
@@ -35,12 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Disable the send button to prevent double submissions
+        const sendBtn = document.getElementById('send-button');
+        if (sendBtn) sendBtn.disabled = true;
+
         const serviceID = "service_56xmdu2";
         const templateID = "template_23pzg8u";
 
-        // Send both emails simultaneously using Promise.all
         Promise.all([
-            // Main notification email (to you)
             emailjs.send(serviceID, templateID, {
                 from_name: universalName,
                 from_email: email,
@@ -49,15 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 time: time,
                 year: year
             }),
-            // Auto-reply email to user (send to the sender's email)
-            // IMPORTANT: In your EmailJS dashboard, for your auto-reply template (template_vc2ninu),
-            // set the "To" field to {{email}} so the reply goes to the user's email address.
             emailjs.send('service_56xmdu2', 'template_vc2ninu', {
                 from_name: universalName,
                 title: title,
                 from_email: email,
                 year: year,
-                email: email // This must match the "To" field variable ({{email}} or {{to_email}}) in your EmailJS template settings
+                email: email
             })
         ])
         .then(
@@ -65,11 +65,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 formMsg.textContent = "Email sent successfully!";
                 formMsg.className = 'success';
                 form.reset();
+                if (sendBtn) sendBtn.disabled = false;
             },
             error => {
                 console.error('EmailJS send failed:', error);
                 formMsg.textContent = "Failed to send email. Please try again later.";
                 formMsg.className = 'error';
+                if (sendBtn) sendBtn.disabled = false;
             }
         );
     });

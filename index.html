@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Roets | Portfolio</title>
     <!-- Favicon for browser tab icon -->
@@ -15,186 +15,162 @@
     <!-- Roboto font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <!-- EmailJS CDN -->
+    <script src="script.js"></script>
+    <!-- EmailJS (for contact form) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your public key
+        (function() {
+            emailjs.init({
+                publicKey: "degXCNYEDAW_NZvRs"
+            });
+        })();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
-    <header class="header-animate">
-        <div class="container">
-            <div class="logo-circle" style="display: flex; align-items: center; justify-content: center; height: 100px; width: 100px; padding: 0; background: none;">
-                <img 
-                    src="My-favicon/Abstract JR Logo with Tech-Savvy Aesthetic_20250624_231657_0000.png" 
-                    alt="JR Logo"
-                    style="width: 80px; height: 80px; object-fit: cover; display: block; margin: 0 auto; border-radius: 50%;"
-                >
-            </div>
-            <h1>Jonathan Roets</h1>
-            <p class="subtitle">Full-Stack Developer | Python · Django · Automation</p>
+    <!-- Fixed Navbar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <span class="nav-logo">JRoetsCyber</span>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
-    </header>
-    <main>
-        <section id="about" class="fade-section">
-            <div class="container">
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section fade-in">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>
+                <span class="headline-pop">Hey, I'm Jonathan</span>
+            </h1>
+            <p class="hero-subtitle">
+                Cybersec learner, Python dev, and coffee-powered creator.<br>
+                I build useful tools, break down systems, and explore the edges of code.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section (Split) -->
+    <section id="about" class="about-section fade-in">
+        <div class="about-split">
+            <div class="about-left">
                 <h2>About Me</h2>
-                <div class="about-cards-grid">
-                    <!-- About Me Card -->
-                    <div class="about-card project-card">
-                        <div class="about-card-inner">
-                            <div class="about-card-front">
-                                <h3>This is ME</h3>
-                                <p>
-                                    Hi, I’m Jonathan a self-taught, hands-on problem solver passionate about technology, real estate marketing, and making things work, even when unclear. With a natural ability to hyperfocus and absorb complex ideas quickly (thank you, ADHD superpower), I thrive in fast-paced environments where quick learning and adaptation are essential.
-                                </p>
-                            </div>
-                            <div class="about-card-back">
-                                <h3>Quick Facts</h3>
-                                <ul>
-                                    <li>Self-taught developer</li>
-                                    <li>Real estate & coffee entrepreneur</li>
-                                    <li>ADHD = hyperfocus</li>
-                                    <li>Always learning</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- What I Do Card -->
-                    <div class="about-card project-card">
-                        <div class="about-card-inner">
-                            <div class="about-card-front">
-                                <h3>What I Do</h3>
-                                <ul>
-                                    <li><strong>Software & Web Development:</strong> Scalable apps and modern interfaces using Django, React (or vanilla JS), and Python backends.</li>
-                                    <li><strong>Automation & API Integration:</strong> Automating tasks and building custom API bridges to streamline workflows.</li>
-                                    <li><strong>Cybersecurity Awareness:</strong> Building systems with privacy and safety in mind.</li>
-                                </ul>
-                            </div>
-                            <div class="about-card-back">
-                                <h3>Also...</h3>
-                                <ul>
-                                    <li><strong>Business Management:</strong> Running <a href="">JO4 BREW</a>, a mobile coffee business.</li>
-                                    <li><strong>Real Estate:</strong> Registered Property Practitioner (PPRA certified).</li>
-                                    <li><strong>Student:</strong> BSc in Information Systems (major: Programming).</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- What Sets Me Apart Card -->
-                    <div class="about-card project-card">
-                        <div class="about-card-inner">
-                            <div class="about-card-front">
-                                <h3>What Sets Me Apart</h3>
-                                <ul>
-                                    <li><strong>Multi-Passionate:</strong> From software to coffee to real estate.</li>
-                                    <li><strong>Full-Stack Mindset:</strong> Backend, frontend, deployment, UI/UX.</li>
-                                    <li><strong>Fast & Focused Learner:</strong> I build, test, learn, and improve continuously.</li>
-                                </ul>
-                            </div>
-                            <div class="about-card-back">
-                                <h3>My Approach</h3>
-                                <ul>
-                                    <li><strong>Client-Oriented:</strong> Communication, trust, and practical solutions come first.</li>
-                                    <li><strong>Big Picture & Details:</strong> I see both and deliver both.</li>
-                                    <li><strong>Ready to Help:</strong> Let's build something great together!</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-card about-connect" style="margin-top:1.5rem;">
-                    <strong>💬 Let’s Connect:</strong> Looking for a developer with hustle, heart, and expertise? Whether starting a project or solving a problem, I’m ready when you are.
-                </div>
-            </div>
-        </section>
-        <section id="skills" class="fade-section">
-            <div class="container">
-                <h2>Skills</h2>
+                <p>
+                    I'm a <span class="highlight-blue">full-stack developer</span> and <span class="highlight-red">cybersecurity enthusiast</span> with a passion for building, breaking, and learning. I thrive on solving real-world problems with code and design, and I love sharing what I learn.
+                </p>
                 <ul class="skills-list">
                     <li>Python</li>
                     <li>Django</li>
                     <li>JavaScript</li>
                     <li>HTML &amp; CSS</li>
-                    <li>Automation</li>
                     <li>APIs</li>
+                    <li>Automation</li>
                     <li>SQL</li>
                     <li>Git</li>
                 </ul>
             </div>
-        </section>
-        <section id="projects" class="fade-section">
-            <div class="container">
-                <h2>Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>CRM System</h3>
-                        <p>COMING SOON</p>
-                        <a href="" target="_blank" class="btn">GitHub</a>
+            <div class="about-right">
+                <div class="about-card">
+                    <h3>Skills & Tools</h3>
+                    <div class="skills-icons">
+                        <span class="skill-icon">🐍</span>
+                        <span class="skill-icon">⚡</span>
+                        <span class="skill-icon">🌐</span>
+                        <span class="skill-icon">🔒</span>
+                        <span class="skill-icon">☕</span>
                     </div>
-                    <div class="project-card">
-                        <h3>file organizer gui</h3>
-                        <p>A simple Python GUI app that organizes files into folders based on their type. Users can customize file categories using a config.json file. Automatically moves images, documents, audio, and more into labeled folders. Includes logging to track moved files. Great for portfolio or personal use.</p>
-                        <a href="https://github.com/JRoetscyber/file-organizer-gui.git" target="_blank" class="btn">GitHub</a>
-                    </div>
-                    <div class="project-card">
-                        <h3>Terminal Adventure Game</h3>
-                        <p>The "Terminal Adventure Game" is a text-based RPG where players explore locations, battle enemies, collect items, and upgrade their character to defeat a dragon. It features turn-based combat, inventory management, merchants, and a dynamic game loop for an engaging terminal-based experience.</p>
-                        <a href="https://github.com/JRoetscyber/Terminal_Adventure_Game.git" target="_blank" class="btn">GitHub</a>
-                    </div>
+                    <ul>
+                        <li>Problem Solving</li>
+                        <li>Automation</li>
+                        <li>Cybersecurity Basics</li>
+                        <li>UI/UX Design</li>
+                        <li>CLI & GUI Apps</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-        <section id="contact" class="fade-section">
-            <div class="container">
-                <h2>Contact Me</h2>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="user_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="user_email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send</button>
-                    <div id="form-message"></div>
-                </form>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section fade-in">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-card-inner">
+                    <h3>Terminal Adventure Game</h3>
+                    <p>
+                        Python text-based RPG with inventory, turn-based combat, and merchants.
+                    </p>
+                    <a href="https://github.com/JRoetscyber/Terminal_Adventure_Game" target="_blank" class="btn">View on GitHub</a>
+                </div>
             </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.2rem;">
-            <a href="https://github.com/JRoetscyber" target="_blank" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" class="icon">
-                GitHub
+            <div class="project-card">
+                <div class="project-card-inner">
+                    <h3>File Organizer GUI</h3>
+                    <p>
+                        Desktop file sorter made in Python with Tkinter and JSON-based configuration.
+                    </p>
+                    <a href="https://github.com/JRoetscyber/file-organizer-gui" target="_blank" class="btn">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section fade-in">
+        <h2>Contact</h2>
+        <div class="contact-links">
+            <a href="https://github.com/JRoetsCyber" target="_blank" class="contact-icon" aria-label="GitHub">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
             </a>
-            <a href="mailto:jroetscyber@gmail.com" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/mail.svg" alt="Email" class="icon">
-                Email
-            </a>
-            <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" class="icon">
-                Facebook
-            </a>
-            <a href="https://www.instagram.com/jroetscyber" target="_blank" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" class="icon">
-                Instagram
-            </a>
-            <a href="https://www.linkedin.com/in/jonathan-roets/" target="_blank" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="icon">
-                LinkedIn
-            </a>
-            <a href="https://leetcode.com/JRoetscyber/" target="_blank" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg" alt="LeetCode" class="icon">
-                LeetCode
-            </a>
-            <a href="https://tryhackme.com/p/JRoetscyber" target="_blank" class="footer-link">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tryhackme.svg" alt="TryHackMe" class="icon">
-                TryHackMe
+            <a href="mailto:jroetscyber@gmail.com" class="contact-icon" aria-label="Email">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/maildotru.svg" alt="Email">
             </a>
         </div>
-        <div style="text-align:center; margin-top: 1.2rem; color: var(--text-muted); font-size: 0.98rem;">
+        <form id="contact-form" class="contact-form">
+            <input type="text" id="name" name="user_name" placeholder="Your Name" required>
+            <input type="email" id="email" name="user_email" placeholder="Your Email" required>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn" id="send-button">Send</button>
+            <div id="form-message"></div>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.2rem;">
+            <a href="https://github.com/JRoetsCyber" target="_blank" class="contact-icon" aria-label="GitHub">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
+            </a>
+            <a href="mailto:jroetscyber@gmail.com" class="contact-icon" aria-label="Email">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/maildotru.svg" alt="Email">
+            </a>
+            <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" class="contact-icon" aria-label="Facebook">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/jroetscyber" target="_blank" class="contact-icon" aria-label="Instagram">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/in/jonathan-roets/" target="_blank" class="contact-icon" aria-label="LinkedIn">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+            </a>
+            <a href="https://leetcode.com/JRoetscyber/" target="_blank" class="contact-icon" aria-label="LeetCode">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg" alt="LeetCode">
+            </a>
+            <a href="https://tryhackme.com/p/JRoetscyber" target="_blank" class="contact-icon" aria-label="TryHackMe">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tryhackme.svg" alt="TryHackMe">
+            </a>
+        </div>
+        <div class="footer-content" style="text-align:center; margin-top: 1.2rem; color: var(--text-muted); font-size: 0.98rem;">
             <span style="color: var(--primary-blue); font-weight: bold;">&#123;</span>
             &copy; <span id="footer-year"></span> Jonathan Roets
             <span style="color: var(--primary-red); font-weight: bold;">&#125;</span>
@@ -206,6 +182,27 @@
             var y = new Date().getFullYear();
             var el = document.getElementById('footer-year');
             if (el) el.textContent = y;
+        });
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        // Hamburger nav toggle (mobile)
+        document.querySelector('.nav-toggle').addEventListener('change', function() {
+            document.querySelector('.nav-links').classList.toggle('open', this.checked);
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+        document.querySelector('.nav-toggle').addEventListener('change', function() {
+            document.querySelector('.nav-links').classList.toggle('open', this.checked);
         });
     </script>
     <script src="script.js"></script>
