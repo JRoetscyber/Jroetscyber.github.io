@@ -1,0 +1,88 @@
+/* Fade in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+    from { 
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Slide in from left animation */
+@keyframes slideInLeft {
+    from { 
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Slide in from right animation */
+@keyframes slideInRight {
+    from { 
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Scale animation */
+@keyframes scale {
+    from { 
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to { 
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animation for timeline items */
+@keyframes slideFromLeft {
+    from { 
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromRight {
+    from { 
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Project filter animation */
+.animate-filter {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.project-card:not(.hide) {
+    opacity: 1;
+    transform: scale(1);
+}
