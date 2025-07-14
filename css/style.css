@@ -229,7 +229,18 @@ button:hover {
 
 .btn-secondary:hover {
     background: var(--accent-primary);
-    color: white;
+    color: rgb(226, 23, 23);
+    transform: translateY(-3px);
+}
+    
+.btn-hire-me {
+    background: rgb(228, 19, 19);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 4px 15px rgba(228, 19, 19, 0.4);
+}
+
+.btn-hire-me:hover {
+    background: rgb(255, 0, 0);
     transform: translateY(-3px);
 }
 
@@ -1204,15 +1215,21 @@ nav.scrolled {
 /* --------------------------------------
    8. CONTACT SECTION
 -------------------------------------- */
+/* Decorative BG shadow for contact section (light & dark mode) */
 .contact::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: var(--surface);
+    left: 50%;
+    top: 0;
+    width: 400px;
+    height: 400px;
+    background: var(--accent-tertiary);
+    opacity: 0.10;
+    border-radius: 50%;
+    filter: blur(100px);
     z-index: 0;
+    transform: translateX(-50%);
+    pointer-events: none;
 }
 
 .contact-content {
@@ -1882,4 +1899,28 @@ nav.scrolled {
     .timeline-content {
         break-inside: avoid;
     }
+}
+
+@media (max-width: 991px) {
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .skill-item {
+    min-width: 0; /* Allows grid items to shrink if needed */
+  }
+  .skill-progress-container {
+    width: 100%;
+    min-width: 0;
+  }
+  .skill-progress {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
