@@ -1,3 +1,10 @@
+/**
+ * Portfolio Website JavaScript
+ * Author: Jonathan Roets
+ * Updated: 2025-07-25 09:47:06 (UTC)
+ * Fixed progress bars and enhanced functionality
+ */
+
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize EmailJS
@@ -5,15 +12,68 @@ document.addEventListener('DOMContentLoaded', function() {
         emailjs.init('degXCNYEDAW_NZvRs');
     })();
     
-    // Theme toggle functionality
+    // Set current year in footer
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
+    
+    // Update current UTC time
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+    
+    // Initialize theme toggle
+    initThemeToggle();
+    
+    // Initialize mobile navigation
+    initMobileNav();
+    
+    // Initialize project filters
+    setupProjectFilters();
+    
+    // Initialize timeline tabs
+    setupTimelineTabs();
+    
+    // Initialize enhanced skill progress bars with fixes
+    initEnhancedSkillBars();
+});
+
+// Update current date and time in UTC
+function updateDateTime() {
+    const now = new Date();
+    
+    // Format as YYYY-MM-DD HH:MM:SS (UTC)
+    const year = now.getUTCFullYear();
+    const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(now.getUTCDate()).padStart(2, '0');
+    const hours = String(now.getUTCHours()).padStart(2, '0');
+    const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+    
+    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds} (UTC)`;
+    
+    // Update the element with the current date/time
+    const dateTimeElement = document.getElementById('current-datetime');
+    if (dateTimeElement) {
+        dateTimeElement.textContent = formattedDateTime;
+    }
+}
+
+// Theme toggle functionality
+function initThemeToggle() {
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
+    
+    if (!themeToggle) return;
     
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
-        themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+        const icon = themeToggle.querySelector('i');
+        if (icon) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
     }
     
     // Toggle theme on click
@@ -22,18 +82,24 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update icon
         const icon = themeToggle.querySelector('i');
-        if (body.classList.contains('dark-mode')) {
-            icon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            icon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'light');
+        if (icon) {
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
         }
     });
-    
-    // Mobile navigation toggle
+}
+
+// Mobile navigation toggle
+function initMobileNav() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+    
+    if (!hamburger || !navLinks) return;
     
     hamburger.addEventListener('click', function() {
         navLinks.classList.toggle('active');
@@ -47,38 +113,30 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.classList.remove('active');
         });
     });
-});
-
-// Change navbar style on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 100,
-                behavior: 'smooth'
-            });
-        }
+    
+    // Implement smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-});
+}
 
 // Project filtering functionality
 function setupProjectFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
+    
+    if (!filterBtns.length || !projectCards.length) return;
     
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -93,13 +151,13 @@ function setupProjectFilters() {
             
             // Filter the projects
             projectCards.forEach(card => {
-                const categories = card.getAttribute('data-category');
+                const categories = card.getAttribute('data-category') || '';
                 
                 // Add animation classes for smooth transitions
                 card.classList.add('animate-filter');
                 
-                // Split categories by comma or space and trim whitespace
-                const categoryArray = categories.split(/[,\s]+/).map(cat => cat.trim().toLowerCase());
+                // Split categories by comma and trim whitespace
+                const categoryArray = categories.split(',').map(cat => cat.trim().toLowerCase());
                 
                 if (filterValue === 'all' || categoryArray.includes(filterValue.toLowerCase())) {
                     card.classList.remove('hide');
@@ -114,16 +172,12 @@ function setupProjectFilters() {
     });
 }
 
-// Call this function after DOM content is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Setup project filters
-    setupProjectFilters();
-});
-
 // Timeline tab functionality
 function setupTimelineTabs() {
     const timelineTabs = document.querySelectorAll('.timeline-tab');
     const timelines = document.querySelectorAll('.timeline');
+    
+    if (!timelineTabs.length || !timelines.length) return;
     
     timelineTabs.forEach(tab => {
         tab.addEventListener('click', function() {
@@ -159,18 +213,106 @@ function setupTimelineTabs() {
     });
     
     // Initialize the first tab
-    const firstTimelineItems = document.querySelector('.timeline.active').querySelectorAll('.timeline-item');
-    firstTimelineItems.forEach((item, index) => {
-        setTimeout(() => {
-            item.classList.add('animated');
-        }, 500 + (100 * index)); // Add a delay for initial load
-    });
+    const activeTimeline = document.querySelector('.timeline.active');
+    if (activeTimeline) {
+        const firstTimelineItems = activeTimeline.querySelectorAll('.timeline-item');
+        firstTimelineItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('animated');
+            }, 500 + (100 * index)); // Add a delay for initial load
+        });
+    }
 }
 
-// Call this function after DOM content is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Setup timeline tabs
-    setupTimelineTabs();
+// Enhanced skill progress bars with fixes for all screen sizes
+function initEnhancedSkillBars() {
+    const progressBars = document.querySelectorAll('.skill-progress');
+    
+    if (!progressBars.length) return;
+    
+    // Remove 'no-js' class to indicate JavaScript is running
+    document.documentElement.classList.remove('no-js');
+    
+    // Create observer for detecting when skills come into view
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target;
+                    const progress = progressBar.getAttribute('data-progress');
+                    
+                    // Apply multiple animation methods for cross-browser compatibility
+                    
+                    // Method 1: Transform
+                    progressBar.style.transform = `scaleX(${progress / 100})`;
+                    
+                    // Method 2: Width (backup for browsers with transform issues)
+                    if (window.innerWidth >= 577 && window.innerWidth <= 991) {
+                        progressBar.style.width = `${progress}%`;
+                    }
+                    
+                    // Ensure transition is applied with !important to override any conflicting styles
+                    progressBar.style.cssText += 'transition: transform 1.5s ease, width 1.5s ease !important;';
+                    
+                    // Method 3: CSS Variable (for CSS-only fallback)
+                    progressBar.style.setProperty('--skill-percent', `${progress}%`);
+                    
+                    // Stop observing once animation is triggered
+                    observer.unobserve(progressBar);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -10% 0px'
+        });
+        
+        // Observe each progress bar
+        progressBars.forEach(bar => {
+            // Reset to initial state before observing
+            bar.style.transform = 'scaleX(0)';
+            observer.observe(bar);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        progressBars.forEach(bar => {
+            const progress = bar.getAttribute('data-progress');
+            bar.style.transform = `scaleX(${progress / 100})`;
+            bar.style.width = `${progress}%`;
+        });
+    }
+    
+    // Secondary method - force update on scroll for problematic browsers/devices
+    window.addEventListener('scroll', function() {
+        progressBars.forEach(bar => {
+            if (!bar.style.transform || bar.style.transform === 'scaleX(0)') {
+                const rect = bar.getBoundingClientRect();
+                const inView = (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+                
+                if (inView) {
+                    const progress = bar.getAttribute('data-progress');
+                    bar.style.transform = `scaleX(${progress / 100})`;
+                    bar.style.width = `${progress}%`;
+                }
+            }
+        });
+    }, { passive: true });
+}
+
+// Change navbar style on scroll
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('nav');
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
 });
 
 // Form submission handling
@@ -231,7 +373,9 @@ function submitForm(event) {
     .then(
         res => {
             // Show success message
-            formSuccess.classList.add('active');
+            if (formSuccess) {
+                formSuccess.classList.add('active');
+            }
             
             // Reset form
             document.getElementById('contactForm').reset();
@@ -255,14 +399,8 @@ function submitForm(event) {
 
 // Reset form after successful submission
 function resetForm() {
-    document.getElementById('formSuccess').classList.remove('active');
-}
-
-// Set current year in footer
-document.addEventListener('DOMContentLoaded', function() {
-    // Set current year
-    const currentYearElement = document.getElementById('currentYear');
-    if (currentYearElement) {
-        currentYearElement.textContent = new Date().getFullYear();
+    const formSuccess = document.getElementById('formSuccess');
+    if (formSuccess) {
+        formSuccess.classList.remove('active');
     }
-});
+}
