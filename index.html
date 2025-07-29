@@ -592,8 +592,11 @@
                 
                 <!-- Project 3 -->
                 <div class="project-card animate-on-scroll" data-category="web,design">
-                    <div class="project-img">
-                        <img src="assets/images/project-3.png" alt="Portfolio Website - Responsive web design project with modern UI/UX principles by Jonathan Roets">
+                    <div class="project-img video-thumbnail">
+                        <video id="project3-video" controls poster="assets/images/project-3.png" style="width:100%;height:auto;" muted playsinline>
+                            <source src="assets/videos/project-3-demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                         <div class="project-overlay">
                             <div class="project-links">
                                 <a href="https://jroetscyber.github.io" target="_blank" class="project-link" aria-label="View Portfolio Website"><i class="fas fa-eye"></i></a>
@@ -962,6 +965,28 @@
     <!-- JavaScript -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+    // Autoplay Project 3 video when visible
+    document.addEventListener('DOMContentLoaded', function() {
+        var video = document.getElementById('project3-video');
+        if (video && 'IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        if (video.paused) {
+                            video.play();
+                        }
+                    } else {
+                        if (!video.paused) {
+                            video.pause();
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            observer.observe(video);
+        }
+    });
+    </script>
     <script src="js/animations.js"></script>
 </body>
 </html>
